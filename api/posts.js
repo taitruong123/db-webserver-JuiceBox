@@ -27,7 +27,6 @@ postsRouter.post('/', requireUser, async (req, res, next) => {
     const tagArr = tags.trim().split(/\s+/)
     const postData = {};
   
-    // only send the tags if there are some to send
     if (tagArr.length) {
       postData.tags = tagArr;
     }
@@ -91,7 +90,6 @@ postsRouter.post('/', requireUser, async (req, res, next) => {
   
         res.send({ post: updatedPost });
       } else {
-        // if there was a post, throw UnauthorizedUserError, otherwise throw PostNotFoundError
         next(post ? { 
           name: "UnauthorizedUserError",
           message: "You cannot delete a post which is not yours"

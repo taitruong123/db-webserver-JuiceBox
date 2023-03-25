@@ -39,8 +39,6 @@ apiRouter.use((req, res, next) => {
   next();
 });
 
-
-
 const usersRouter = require('./users');
 apiRouter.use('/users', usersRouter);
 
@@ -94,4 +92,5 @@ apiRouter.use((error, req, res, next) => {
     });
   });
 
-module.exports = apiRouter;
+
+  module.exports = apiRouter;
